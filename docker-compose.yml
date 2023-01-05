@@ -1,0 +1,64 @@
+version: '3.4'
+networks:
+  dev:
+    driver: bridge
+services:
+  managementAPI:
+    image: xnavrat4/openlicensemanagement:1.0.0
+    depends_on:
+      - "ol_db"
+    container_name: openlicensemanagement
+    #choose ports of your liking
+    ports:
+      - "50103:80"
+      - "50104:443"
+    #map path to folder with certificates
+    volumes:
+      - /path/to/certificates/:/certificates
+    #use correct certificate name and password, and connection string 
+    environment:
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/certificates/certificate.pfx
+      - ConnectionStrings__OLSConnectionString=User ID=postgres;Password=postgres;Server=ol_db; Port=5432; Database=OLSDb; IntegratedSecurity=true; Pooling=true; Timeout=500; CommandTimeout=500
+    networks:
+      - dev
+  serverAPI:
+    image: xnavrat4/openlicenseserver:1.0.0
+    depends_on:
+      - "ol_db"
+    container_name: openlicenseserver
+    ports:
+      - "50101:80"
+      - "50102:443"
+    #map path to folder with certificates
+    volumes:
+      - /path/to/certificates/:/certificates
+    #use correct certificate name and password, connection string
+    #the private key should be passed as a user secret, but for the demostration and easy setup, this one is used (its public key is included in OL Service and Module)
+    environment:
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/certificates/certificate.pfx
+      - ConnectionStrings__OLSConnectionString=User ID=postgres;Password=postgres;Server=ol_db; Port=5432; Database=OLSDb; IntegratedSecurity=true; Pooling=true; Timeout=500; CommandTimeout=500
+      - PrivateKey=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
+    networks:
+      - dev
+  ol_db:
+    image: postgres:14.7
+    container_name: ol_db
+    #choose credentials of your liking
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=OLSDb
+     #map to any port you like, 5432 might not be the best choice, as a postresql could be installed you target machine
+    ports:
+    - "5432:5432"
+    restart: always
+    volumes:
+      - ol_data:/var/lib/postgresql/data/
+    networks:
+      - dev
+volumes:
+  ol_data:
