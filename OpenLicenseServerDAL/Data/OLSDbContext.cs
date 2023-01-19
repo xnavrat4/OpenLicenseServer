@@ -1,10 +1,13 @@
 using FoodliveryDAL.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+
 
 namespace OpenLicenseServerDAL.Data;
 
-public class OLSDbContext : IdentityDbContext<IdentifyUser>
+public class OLSDbContext : IdentityDbContext<IdentityUser>
 {
     private string _connectionString;
     
