@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace FoodliveryDAL.Models;
+namespace OpenLicenseServerDAL.Models;
 
 public class HWInfo : BaseEntity
 {

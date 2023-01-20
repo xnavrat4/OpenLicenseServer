@@ -1,4 +1,4 @@
-﻿using FoodliveryDAL.Models;
+﻿using OpenLicenseServerDAL.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

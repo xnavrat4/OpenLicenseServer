@@ -1,6 +1,6 @@
-namespace FoodliveryDAL.Models;
+namespace OpenLicenseServerDAL.Models;
 
-public class License
+public class License : BaseEntity
 {
     
 }
