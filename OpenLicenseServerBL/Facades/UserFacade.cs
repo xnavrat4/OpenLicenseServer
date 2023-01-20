@@ -32,6 +32,11 @@ public class UserFacade : IUserFacade
         return _mapper.Map<UserDto>(user);
     }
 
+    public Task<UserDto?> GetUserByEmailAsync(string email)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task UpdateUserAsync(UserUpdateDto userDto)
     {
         var user = _mapper.Map<User>(userDto);
