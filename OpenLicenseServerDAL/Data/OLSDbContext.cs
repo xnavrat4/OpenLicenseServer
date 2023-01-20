@@ -33,9 +33,9 @@ public class OLSDbContext : IdentityDbContext<IdentityUser>
     {
         if (!optionsBuilder.IsConfigured)
         {
-                //.UseMySQL(_connectionString)
+                //.UseNpgsql(_connectionString)
             optionsBuilder
-                .UseNpgsql(_connectionString)
+                .UseMySQL(_connectionString)
                 .UseLazyLoadingProxies()
                 .EnableSensitiveDataLogging();
         }

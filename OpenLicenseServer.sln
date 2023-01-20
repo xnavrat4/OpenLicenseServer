@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenLicenseServerDAL", "Ope
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{702A10F0-9E64-462B-A544-C1CEC0C32AEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.EFCore", "Infrastructure.EFCore\Infrastructure.EFCore.csproj", "{5DD59CA5-D79F-45CD-8004-B8366A98B8D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{702A10F0-9E64-462B-A544-C1CEC0C32AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{702A10F0-9E64-462B-A544-C1CEC0C32AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{702A10F0-9E64-462B-A544-C1CEC0C32AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DD59CA5-D79F-45CD-8004-B8366A98B8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DD59CA5-D79F-45CD-8004-B8366A98B8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DD59CA5-D79F-45CD-8004-B8366A98B8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DD59CA5-D79F-45CD-8004-B8366A98B8D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
