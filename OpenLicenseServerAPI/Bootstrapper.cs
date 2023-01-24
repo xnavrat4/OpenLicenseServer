@@ -4,19 +4,20 @@ using Autofac.Integration.WebApi;
 using OpenLicenseServerBL;
 using Infrastructure.EFCore;
 using MySql.Data.MySqlClient;
+using Npgsql;
 using OpenLicenseServerDAL.Data;
 
 namespace OpenLicenseServerAPI;
 
 public class Bootstrapper : IDisposable
 {
-    private readonly MySqlConnection _connection;
-    // private readonly NpgsqlConnection _connection;
+    //private readonly MySqlConnection _connection;
+    private readonly NpgsqlConnection _connection;
     
     public Bootstrapper(string connString)
     {
-        _connection = new MySqlConnection(connString);
-        // _connection = new NpgsqlConnection(connString);
+        _connection = new NpgsqlConnection(connString);
+        //_connection = new MySqlConnection(connString);
         _connection.Open();
     }
 

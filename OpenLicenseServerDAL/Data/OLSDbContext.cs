@@ -18,7 +18,7 @@ public class OLSDbContext : IdentityDbContext<IdentityUser>
 
     public OLSDbContext()
     {
-        _connectionString = "const";
+        _connectionString = "Host=localhost; Port=5432; Database=OLSdb; Username=postgres; Password=postgres";
     }
     
     public OLSDbContext(DbContextOptions options): base(options)
@@ -33,9 +33,9 @@ public class OLSDbContext : IdentityDbContext<IdentityUser>
     {
         if (!optionsBuilder.IsConfigured)
         {
-                //.UseNpgsql(_connectionString)
             optionsBuilder
-                .UseMySQL(_connectionString)
+                .UseNpgsql(_connectionString)
+                //.UseMySQL(_connectionString)
                 .UseLazyLoadingProxies()
                 .EnableSensitiveDataLogging();
         }

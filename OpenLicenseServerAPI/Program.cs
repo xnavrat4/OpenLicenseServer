@@ -11,7 +11,7 @@ using Microsoft.OpenApi.Models;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 var builder = WebApplication.CreateBuilder(args);
-var connString = ConfigurationManager.AppSettings["FoodliveryConnectionString"];
+var connString = ConfigurationManager.AppSettings["OLSConnectionString"];
 
 using var bootstrapper = new Bootstrapper(connString);
 builder.Logging.AddConsole();

@@ -14,10 +14,10 @@ namespace Infrastructure.EFCore
 {
     public class EFModule : Module
     {
-        // private NpgsqlConnection _connection;
-        private MySqlConnection _connection;
+        private NpgsqlConnection _connection;
+        //private MySqlConnection _connection;
 
-        public EFModule(MySqlConnection connection)
+        public EFModule(NpgsqlConnection connection)
         {
             _connection = connection;
         }
