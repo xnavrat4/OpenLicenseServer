@@ -3,7 +3,7 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using OpenLicenseServerBL;
 using Infrastructure.EFCore;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 using Npgsql;
 using OpenLicenseServerDAL.Data;
 

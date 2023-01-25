@@ -7,7 +7,7 @@ using Infrastructure.Query;
 using Infrastructure.Repository;
 using Infrastructure.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 using Npgsql;
 
 namespace Infrastructure.EFCore
@@ -25,8 +25,8 @@ namespace Infrastructure.EFCore
         protected override void Load(ContainerBuilder builder)
         {
             var dbContextOptions = new DbContextOptionsBuilder<OLSDbContext>()
-                // .UseNpgsql(_connection)
-                .UseMySQL(_connection)
+                 .UseNpgsql(_connection)
+                //.UseMySQL(_connection)
                 .Options;
 
             // DB Context

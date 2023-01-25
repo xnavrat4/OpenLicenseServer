@@ -15,6 +15,7 @@ public class OLSDbContext : IdentityDbContext<IdentityUser>
     public DbSet<HWInfo> HwInfos { get; set; }
     public DbSet<License> Licenses { get; set; }
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<User> Users { get; set; }
 
     public OLSDbContext()
     {
