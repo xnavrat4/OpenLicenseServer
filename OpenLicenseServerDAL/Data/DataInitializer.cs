@@ -8,9 +8,12 @@ namespace OpenLicenseServerDAL.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-
-            var license = new License() { Id = 1, SerialNumber = Guid.NewGuid() };
-            modelBuilder.Entity<License>().HasData(license);
+            for (var i = 0; i < 5; i++)
+            {
+                var license = new License() { Id = i+ 1, SerialNumber = Guid.NewGuid() };
+                modelBuilder.Entity<License>().HasData(license);
+            }
+            
             //User
             var user = new User()
                 { Id = 1, Email = "user@email.com", FirstName = "Martin", LastName = "User", PhoneNumber = "+420811895549"};
