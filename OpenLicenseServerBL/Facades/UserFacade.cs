@@ -10,9 +10,9 @@ public class UserFacade : IUserFacade
 {
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IService<User> _userService;
+    private readonly IUserService _userService;
 
-    public UserFacade(IUnitOfWork unitOfWork, IService<User> userService, IMapper mapper)
+    public UserFacade(IUnitOfWork unitOfWork, IUserService userService, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _userService = userService;
@@ -32,9 +32,10 @@ public class UserFacade : IUserFacade
         return _mapper.Map<UserDto>(user);
     }
 
-    public Task<UserDto?> GetUserByEmailAsync(string email)
+    public async Task<UserDto?> GetUserByEmailAsync(string email)
     {
-        throw new NotImplementedException();
+        var queryResult = await _userService.GetUserByEmailAsync(email);
+        return _mapper.Map<UserDto>(queryResult.Items.FirstOrDefault());
     }
 
     public async Task UpdateUserAsync(UserUpdateDto userDto)

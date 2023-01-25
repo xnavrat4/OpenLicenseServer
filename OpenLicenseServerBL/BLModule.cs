@@ -12,8 +12,15 @@ namespace OpenLicenseServerBL
         protected override void Load(ContainerBuilder builder)
         {
             var assembly = Assembly.GetExecutingAssembly();
+            // QueryObjects
+            builder.RegisterAssemblyTypes(assembly)
+                .Where(t => t.Namespace == "OpenLicenseServerBL.QueryObjects")
+                .InstancePerDependency();
             //Services
-            builder.RegisterGeneric(typeof(BaseService<>)).As(typeof(IService<>));
+            builder.RegisterAssemblyTypes(assembly)
+                .Where(t => t.Namespace == "OpenLicenseServerBL.Services")
+                .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name)!)
+                .InstancePerDependency();
             // Facades
             builder.RegisterAssemblyTypes(assembly)
                 .Where(t => t.Namespace == "OpenLicenseServerBL.Facades")

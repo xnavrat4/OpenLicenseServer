@@ -127,7 +127,7 @@ public class IdentityController : ControllerBase
         if (!loggedIn.Succeeded || await _userFacade.GetUserByEmailAsync(user.Email) is not UserDto userDto)
         {
             _logger.LogWarning($"Error logging in user {userLoginDto.Email}.");
-            return BadRequest("Unexpected problem with login, contact Foodlivery support.");
+            return BadRequest("Unexpected problem with login");
         }
         
         var userWithTokenDto = _mapper.Map<UserWithTokenDto>(userDto);
