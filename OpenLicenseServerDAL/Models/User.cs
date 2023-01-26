@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using OpenLicenseServerDAL.Enums;
 
 namespace OpenLicenseServerDAL.Models;
 
@@ -15,4 +16,13 @@ public class User : BaseEntity
     [EmailAddress]
     [MaxLength(64)]
     public string Email { get; set; }
+    
+    public int AddedById { get; set; }
+    
+    [ForeignKey(nameof(AddedById))]
+    public User AddedBy { get; set; }
+    
+    public DateTime AddedOn { get; set; }
+    
+    public UserStatus UserStatus { get; set; }
 }
